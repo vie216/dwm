@@ -8,14 +8,6 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=12" };
 static const char dmenufont[]       = "monospace:size=12";
-//static const char col_dark[]        = "#232532";
-//static const char col_light[]       = "#a6aadc";
-//static const char col_accent[]      = "#8d7a95";
-//static const char col_dark[]        = "#1a1e26";
-//static const char col_light[]       = "#b6b9f2";
-//static const char col_accent[]      = "#9c71d9";
-//static const char col_dark[]        = "#222233";
-//static const char col_light[]       = "#eeeeff";
 static const char col_dark[]        = "#14171e";
 static const char col_light[]       = "#a6aadc";
 static const char col_accent[]      = "#9c71d9";
@@ -23,8 +15,6 @@ static const char col_st_bg[]       = "#14171e@259";
 static const char col_st_fg[]       = "#a6aadc@258";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	//[SchemeNorm] = { "#bbbbbb", "#222222", "#444444" },
-	//[SchemeSel]  = { "#eeeeee", "#005577", "#005577"  },
 	[SchemeNorm] = { col_light, col_dark,   col_dark },
 	[SchemeSel]  = { col_dark,  col_accent, col_accent  },
 };
