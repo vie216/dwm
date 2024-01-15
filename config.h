@@ -10,15 +10,13 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=12" };
 static const char dmenufont[]       = "monospace:size=12";
-static const char col_dark[]        = "#14171e";
-static const char col_light[]       = "#a6aadc";
-static const char col_accent[]      = "#9c71d9";
-static const char col_st_bg[]       = "#14171e@259";
-static const char col_st_fg[]       = "#a6aadc@258";
+static const char col_bg[]          = "#000000"; /* background */
+static const char col_fg[]          = "#a6aadc"; /* foreground */
+static const char col_acc[]         = "#9c71d9"; /* accent */
 static const char *colors[][3]      = {
 	/*               fg         bg          border   */
-	[SchemeNorm] = { col_light, col_dark,   col_dark },
-	[SchemeSel]  = { col_dark,  col_accent, col_accent  },
+	[SchemeNorm] = { col_fg, col_bg,  col_bg },
+	[SchemeSel]  = { col_bg, col_acc, col_acc },
 };
 
 /* tagging */
@@ -60,19 +58,21 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_dark, "-nf", col_light, "-sb", col_accent, "-sf", col_dark, NULL };
-static const char *termcmd[]  = { "st", "-C", col_st_bg, "-C", col_st_fg, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_bg, "-nf", col_fg, "-sb", col_acc, "-sf", col_bg, NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *brightnessupcmd[]  = { "brightnessctl", "set", "+5%", NULL };
 static const char *brightnessdowncmd[]  = { "brightnessctl", "set", "5%-", NULL };
 static const char *volumeupcmd[]  = { "pactl", "set-sink-volume", "0", "+5%", NULL };
 static const char *volumedowncmd[]  = { "pactl", "set-sink-volume", "0", "-5%", NULL };
 static const char *screenshotcmd[]  = { "flameshot", "gui", NULL };
+static const char *boomercmd[]  = { "boomer", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Print,  spawn,          {.v = screenshotcmd } },
+	{ MODKEY,                       XK_Tab,    spawn,          {.v = boomercmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Right,  focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_Left,   focusstack,     {.i = -1 } },
