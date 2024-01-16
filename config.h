@@ -3,20 +3,27 @@
 #include "selfrestart.c"
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=12" };
-static const char dmenufont[]       = "monospace:size=12";
-static const char col_bg[]          = "#000000"; /* background */
-static const char col_fg[]          = "#a6aadc"; /* foreground */
-static const char col_acc[]         = "#9c71d9"; /* accent */
+static const unsigned int borderpx    = 2;        /* border pixel of windows */
+static const unsigned int gappx       = 5;        /* gaps between windows */
+static const unsigned int snap        = 32;       /* snap pixel */
+static const int showbar              = 1;        /* 0 means no bar */
+static const int topbar               = 1;        /* 0 means bottom bar */
+static const char *fonts[]            = { "monospace:size=12" };
+static const char dmenufont[]         = "monospace:size=12";
+static const char col_bg[]            = "#141414"; /* background */
+static const char col_fg[]            = "#868abc"; /* foreground */
+static const char col_acc[]           = "#7c51b9"; /* accent */
+static const unsigned int baralpha    = 0xff;
+static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg          border   */
 	[SchemeNorm] = { col_fg, col_bg,  col_bg },
 	[SchemeSel]  = { col_bg, col_acc, col_acc },
+};
+static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border*/
+	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
@@ -98,6 +105,9 @@ static const Key keys[] = {
 	/* { MODKEY,                       XK_period, focusmon,       {.i = +1 } }, */
 	/* { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } }, */
 	/* { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } }, */
+	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
+	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
