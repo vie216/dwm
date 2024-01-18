@@ -128,9 +128,9 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
 	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
-	{ 0, XF86XK_AudioPlay,                        spawn,          {.v = togglecmd} },
-	{ 0, XF86XK_AudioNext,                        spawn,          {.v = nextcmd} },
-	{ 0, XF86XK_AudioPrev,                        spawn,          {.v = prevcmd} },
+	{ 0, XF86XK_AudioPlay,                     spawn,          {.v = togglecmd} },
+	{ 0, XF86XK_AudioNext,                     spawn,          {.v = nextcmd} },
+	{ 0, XF86XK_AudioPrev,                     spawn,          {.v = prevcmd} },
 };
 
 /* button definitions */
