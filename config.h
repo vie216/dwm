@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 #include "selfrestart.c"
 
 /* appearance */
@@ -73,6 +75,9 @@ static const char *volumeupcmd[]  = { "pactl", "set-sink-volume", "0", "+5%", NU
 static const char *volumedowncmd[]  = { "pactl", "set-sink-volume", "0", "-5%", NULL };
 static const char *screenshotcmd[]  = { "flameshot", "gui", NULL };
 static const char *boomercmd[]  = { "boomer", NULL };
+static const char *togglecmd[]  = { "playerctl", "play-pause", NULL };
+static const char *nextcmd[]  = { "playerctl", "next", NULL };
+static const char *prevcmd[]  = { "playerctl", "previous", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -85,12 +90,16 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Left,   focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volumeupcmd} },
 	{ MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = volumedowncmd} },
+	{ 0, XF86XK_AudioRaiseVolume,              spawn,          {.v = volumeupcmd } },
+	{ 0, XF86XK_AudioLowerVolume,              spawn,          {.v = volumedowncmd } },
 	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_Up,     setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_Down,   setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Up,     spawn,          {.v = brightnessupcmd} },
 	{ MODKEY|ShiftMask,             XK_Down,   spawn,          {.v = brightnessdowncmd} },
+	{ 0, XF86XK_MonBrightnessUp,               spawn,          {.v = brightnessupcmd} },
+	{ 0, XF86XK_MonBrightnessDown,             spawn,          {.v = brightnessdowncmd} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	/* { MODKEY,                       XK_Tab,    view,           {0} }, */
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
@@ -119,6 +128,9 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
 	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
+	{ 0, XF86XK_AudioPlay,                        spawn,          {.v = togglecmd} },
+	{ 0, XF86XK_AudioNext,                        spawn,          {.v = nextcmd} },
+	{ 0, XF86XK_AudioPrev,                        spawn,          {.v = prevcmd} },
 };
 
 /* button definitions */
