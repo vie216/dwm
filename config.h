@@ -12,9 +12,9 @@ static const int showbar              = 1;        /* 0 means no bar */
 static const int topbar               = 1;        /* 0 means bottom bar */
 static const char *fonts[]            = { "monospace:size=12" };
 static const char dmenufont[]         = "monospace:size=12";
-static const char col_bg[]            = "#141414"; /* background */
-static const char col_fg[]            = "#868abc"; /* foreground */
-static const char col_acc[]           = "#7c51b9"; /* accent */
+static const char col_bg[]            = "#181818"; /* background */
+static const char col_fg[]            = "#868aac"; /* foreground */
+static const char col_acc[]           = "#8253a1"; /* accent */
 static const unsigned int baralpha    = 0xff;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
