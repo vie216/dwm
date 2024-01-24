@@ -15,17 +15,10 @@ static const char dmenufont[]         = "monospace:size=12";
 static const char col_bg[]            = "#181818"; /* background */
 static const char col_fg[]            = "#868aac"; /* foreground */
 static const char col_acc[]           = "#8253a1"; /* accent */
-static const unsigned int baralpha    = 0xff;
-static const unsigned int borderalpha = 0xff;
 static const char *colors[][3]      = {
 	/*               fg         bg          border   */
 	[SchemeNorm] = { col_fg, col_bg,  col_bg },
 	[SchemeSel]  = { col_bg, col_acc, col_acc },
-};
-static const unsigned int alphas[][3]      = {
-	/*               fg      bg        border*/
-	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
-	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
