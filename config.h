@@ -81,6 +81,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Print,  spawn,          {.v = screenshotcmd } },
 	{ MODKEY,                       XK_Tab,    spawn,          {.v = boomercmd } },
+	{ 0, XF86XK_AudioPlay,                     spawn,          {.v = togglecmd} },
+	{ 0, XF86XK_AudioNext,                     spawn,          {.v = nextcmd} },
+	{ 0, XF86XK_AudioPrev,                     spawn,          {.v = prevcmd} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Right,  focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_Left,   focusstack,     {.i = -1 } },
@@ -97,7 +100,6 @@ static const Key keys[] = {
 	{ 0, XF86XK_MonBrightnessUp,               spawn,          {.v = brightnessupcmd} },
 	{ 0, XF86XK_MonBrightnessDown,             spawn,          {.v = brightnessdowncmd} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
-	/* { MODKEY,                       XK_Tab,    view,           {0} }, */
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
@@ -106,12 +108,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
-	/* { MODKEY,                       XK_0,      view,           {.ui = ~0 } }, */
-	/* { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } }, */
-	/* { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } }, */
-	/* { MODKEY,                       XK_period, focusmon,       {.i = +1 } }, */
-	/* { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } }, */
-	/* { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } }, */
+	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
+	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
@@ -126,9 +125,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
 	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
-	{ 0, XF86XK_AudioPlay,                     spawn,          {.v = togglecmd} },
-	{ 0, XF86XK_AudioNext,                     spawn,          {.v = nextcmd} },
-	{ 0, XF86XK_AudioPrev,                     spawn,          {.v = prevcmd} },
 };
 
 /* button definitions */
