@@ -43,11 +43,11 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 #include "fibonacci.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
+	{ "[\\]",     dwindle },
 	{ "[t]",      tile },    /* first entry is default */
 	{ "[f]",      NULL },    /* no layout function means floating behavior */
 	{ "[m]",      monocle },
 	{ "[@]",      spiral },
-	{ "[\\]",      dwindle },
 };
 
 /* key definitions */
@@ -99,11 +99,11 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	/* { MODKEY,                       XK_Tab,    view,           {0} }, */
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 	/* { MODKEY,                       XK_0,      view,           {.ui = ~0 } }, */
